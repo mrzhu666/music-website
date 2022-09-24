@@ -42,6 +42,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!--参数校检-->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
         <!--mysql-connector-java就是帮助java程序操作mysql的驱动程序。通过与mysql服务端建立连接，发送sql语句并且获取结果集-->
         <dependency>
             <groupId>mysql</groupId>
@@ -103,6 +109,9 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
+            <!--只在运行时起作用，打包时不打进去-->
+            <scope>runtime</scope>
+            <!--不会被其它模块继承，如果多个子模块可以去掉-->
             <optional>true</optional>
         </dependency>
 
@@ -147,6 +156,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
             </plugin>
 
             <plugin>
